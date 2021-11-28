@@ -1,10 +1,11 @@
 <script lang="ts">
-	export let name: string;
+	import Modal from './Modal.svelte'
 </script>
 
+<Modal />
+
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>This is my Application</h1>
 </main>
 
 <style>
