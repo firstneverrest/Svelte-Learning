@@ -2,7 +2,7 @@
 
 Svelte is a front-end compiler for creating reactive web apps & interfaces. It can be used for small parts of a site or entirely (SPA).
 
-## What is the different between Svelte and front-end framework like React?
+## What is the difference between Svelte and front-end framework like React?
 
 Svelte is not a framework, but a compiler. It compiles your code for production at build time into a single vanilla JS bundle. Moreover, no extra scripts or libraries are shipped to production, it causes results in a faster running website.
 
@@ -44,7 +44,7 @@ You can enable TS in Svelte project by running setupTypeScript.js file with Node
 ```
 node scripts/setupTypeScript.js
 
-ืnpm install
+npm install
 ```
 
 When you change your code, Svelte automatically re-build JS bundle again. No need to install package like nodemon.
