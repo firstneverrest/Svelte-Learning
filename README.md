@@ -147,3 +147,80 @@ Reactive value update automatically when the data it depends on, change.
 	<input type="text" bind:value={lastName}>
 </main>
 ```
+
+## Loop
+
+```svelte
+<script lang="ts">
+	let users = [
+		{name: 'john', age: 24, id: 1},
+		{name: 'mint', age: 22, id: 2},
+		{name: 'carlos', age: 21, id: 3}
+	]
+</script>
+
+<main>
+	{#each users as user (user.id)}
+	<div>
+		<h4>{user.name}</h4>
+		<p>{user.age} years old.</p>
+	</div>
+	{:else}
+		<p>There are no users.</p>
+	{/each}
+</main>
+```
+
+## Inline Event Handlers
+
+```svelte
+<script lang="ts">
+	let users = [
+		{name: 'john', age: 24, id: 1},
+		{name: 'mint', age: 22, id: 2},
+		{name: 'carlos', age: 21, id: 3}
+	]
+
+	const deleteUser = (id) => {
+		users = users.filter((user) => user.id != id)
+	}
+</script>
+
+<main>
+	{#each users as user (user.id)}
+	<div>
+		<h4>{user.name}</h4>
+		<p>{user.age} years old.</p>
+		<button on:click={() => deleteUser(user.id)}>Delete</button>
+	</div>
+	{:else}
+		<p>There are no users.</p>
+	{/each}
+</main>
+```
+
+## Condition
+
+```svelte
+<script lang="ts">
+	let users = [
+		{name: 'john', age: 24, id: 1},
+		{name: 'mint', age: 22, id: 2},
+		{name: 'carlos', age: 21, id: 3}
+	]
+
+	const deleteUser = (id) => {
+		users = users.filter((user) => user.id != id)
+	}
+	let score = 85
+</script>
+
+{#if score >= 80}
+	<p>Grade: A</p>
+{:else if score > 60}
+	<p>Grade: B</p>
+{:else}
+	<p>Grade: F</p>
+{/if}
+
+```
