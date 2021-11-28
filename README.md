@@ -124,3 +124,26 @@ Two-way binding value with very easy way
   <button on:click="{changeJob}">Change Job</button>
 </main>
 ```
+
+## Reactive Value
+
+Reactive value update automatically when the data it depends on, change.
+
+```svelte
+<script lang="ts">
+	let firstName = "Chitsanupong"
+	let lastName = "Tangvasinkul"
+
+	$: fullName = `${firstName} ${lastName}`
+	$: {
+		console.log(firstName)
+		console.log(lastName)
+	};
+</script>
+
+<main>
+	<h1>Hello {fullName}</h1>
+	<input type="text" bind:value={firstName}>
+	<input type="text" bind:value={lastName}>
+</main>
+```
