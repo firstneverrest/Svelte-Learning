@@ -224,3 +224,39 @@ Reactive value update automatically when the data it depends on, change.
 {/if}
 
 ```
+
+## Import & Export Component
+
+Svelte component is automatically exported. So, you can just import Svelte component without export that component.
+
+```svelte
+<!-- Modal.Svelte -->
+<script>
+    let showModal = true;
+</script>
+
+{#if showModal}
+<div class="backdrop">
+    <div class="modal">
+        <p>Special offer now!</p>
+    </div>
+</div>
+{/if}
+
+<style>
+
+</style>
+```
+
+```svelte
+<!-- App.svelte -->
+<script lang="ts">
+	import Modal from './Modal.svelte'
+</script>
+
+<Modal />
+
+<main>
+	<h1>This is my Application</h1>
+</main>
+```
