@@ -260,3 +260,45 @@ Svelte component is automatically exported. So, you can just import Svelte compo
 	<h1>This is my Application</h1>
 </main>
 ```
+
+## Styling
+
+Use global.css to style element globally. Then, use style tag in the component to locally style each component.
+
+You can do conditional styling with `class:` attribute. If the result is true, class name will be applied in the element.
+
+```svelte
+<script>
+    let showModal = true;
+    let isSpecial = true;
+</script>
+
+{#if showModal}
+<div class="backdrop" class:special={isSpecial}>
+    <div class="modal">
+        <p>Special offer now!</p>
+    </div>
+</div>
+{/if}
+
+<style>
+    .backdrop {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: rgba(0,0,0,0.8);
+    }
+    .modal {
+        padding: 10px;
+        border-radius: 10px;
+        max-width: 400px;
+        margin: 10% auto;
+        text-align: center;
+        background: white;
+    }
+
+    .special {
+        background: rgba(0,0,0,0.1);
+    }
+</style>
+```
