@@ -361,3 +361,40 @@ Tip: `{showModal}` is a shorthand for `showModal={showModal}`
 {/if}
 
 ```
+
+## Slot
+
+The content is exposed in the child component using the <slot> element. You can pass content into the component like Vue Slot.
+
+```svelte
+<!-- App.svelte -->
+<Modal message="Thank you for visiting our website!" {showModal} on:click={toggleModal}>
+	<form>
+		<input type="text" placeholder="name">
+		<input type="text" placeholder="job">
+		<button>Add Employee</button>
+	</form>
+	<div slot="title">
+		<h3>Add a New Employee</h3>
+	</div>
+</Modal>
+```
+
+```svelte
+<!-- Modal.svelte -->
+<script>
+    export let message = 'default message';
+    export let showModal = true;
+</script>
+
+{#if showModal}
+<div class="backdrop" on:click|self>
+    <div class="modal">
+        <slot name="title"></slot>
+        <p>{message}</p>
+        <slot></slot>
+    </div>
+</div>
+{/if}
+
+```
