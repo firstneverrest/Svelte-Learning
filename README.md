@@ -325,3 +325,39 @@ Svelte send props to component like React.
 </div>
 
 ```
+
+## Event Handler
+
+### Event forwarding
+
+Pass functions as props to the component to pass the event.
+
+### Event Modifier
+
+- once - make sure the event can only fire once
+- preventDefault - prevent the default action
+- self - only fires the event if the clicked element is the target
+
+```svelte
+<!-- App.svelte -->
+<Modal message="Thank you for visiting our website!" {showModal} on:click={toggleModal}/>
+```
+
+Tip: `{showModal}` is a shorthand for `showModal={showModal}`
+
+```svelte
+<!-- Modal.svelte -->
+<script>
+    export let message = 'default message';
+    export let showModal = true;
+</script>
+
+{#if showModal}
+<div class="backdrop" on:click|self>
+    <div class="modal">
+        <p>{message}</p>
+    </div>
+</div>
+{/if}
+
+```
