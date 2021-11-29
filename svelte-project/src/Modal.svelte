@@ -1,11 +1,10 @@
 <script>
     export let message = 'default message';
-    let showModal = true;
-    let isSpecial = false;
+    export let showModal = true;
 </script>
 
 {#if showModal}
-<div class="backdrop" class:special={isSpecial}>
+<div class="backdrop" on:click|self>
     <div class="modal">
         <p>{message}</p>
     </div>
@@ -26,9 +25,5 @@
         margin: 10% auto;
         text-align: center;
         background: white;
-    }
-
-    .special {
-        background: rgba(0,0,0,0.1);
     }
 </style>

@@ -1,11 +1,18 @@
 <script lang="ts">
 	import Modal from './Modal.svelte'
+
+	let showModal = false;
+
+	const toggleModal = () => {
+		showModal = !showModal
+	}
 </script>
 
-<Modal message="Thank you for visiting our website!"/>
+<Modal message="Thank you for visiting our website!" {showModal} on:click={toggleModal}/>
 
 <main>
 	<h1>This is my Application</h1>
+	<button on:click={toggleModal}>Open Modal</button>
 </main>
 
 <style>
