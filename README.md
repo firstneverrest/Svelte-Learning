@@ -302,3 +302,26 @@ You can do conditional styling with `class:` attribute. If the result is true, c
     }
 </style>
 ```
+
+## Props
+
+Svelte send props to component like React.
+
+```svelte
+<!-- App.svelte -->
+<Modal message="Thank you for visiting our website!"/>
+```
+
+```svelte
+<!-- Modal.svelte -->
+<script>
+    export let message = 'default message';
+</script>
+
+<div class="backdrop">
+    <div class="modal">
+        <p>{message}</p>
+    </div>
+</div>
+
+```
