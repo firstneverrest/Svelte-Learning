@@ -6,7 +6,9 @@
 {#if showModal}
 <div class="backdrop" on:click|self>
     <div class="modal">
+        <slot name="title"></slot>
         <p>{message}</p>
+        <slot></slot>
     </div>
 </div>    
 {/if}

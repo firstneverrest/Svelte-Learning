@@ -8,7 +8,16 @@
 	}
 </script>
 
-<Modal message="Thank you for visiting our website!" {showModal} on:click={toggleModal}/>
+<Modal message="Thank you for visiting our website!" {showModal} on:click={toggleModal}>
+	<form>
+		<input type="text" placeholder="name">
+		<input type="text" placeholder="job">
+		<button>Add Employee</button>
+	</form>
+	<div slot="title">
+		<h3>Add a New Employee</h3>
+	</div>
+</Modal>
 
 <main>
 	<h1>This is my Application</h1>
