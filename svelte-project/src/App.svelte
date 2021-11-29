@@ -2,7 +2,7 @@
 	import Modal from './Modal.svelte'
 </script>
 
-<Modal />
+<Modal message="Thank you for visiting our website!"/>
 
 <main>
 	<h1>This is my Application</h1>

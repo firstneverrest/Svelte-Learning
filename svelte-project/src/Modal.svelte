@@ -1,12 +1,13 @@
 <script>
+    export let message = 'default message';
     let showModal = true;
-    let isSpecial = true;
+    let isSpecial = false;
 </script>
 
 {#if showModal}
 <div class="backdrop" class:special={isSpecial}>
     <div class="modal">
-        <p>Special offer now!</p>
+        <p>{message}</p>
     </div>
 </div>    
 {/if}
